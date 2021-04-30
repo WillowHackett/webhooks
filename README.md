@@ -1,74 +1,38 @@
-## GitHub Webhook to Telegram
+<a href="#">
+  <h3 align="center">
+    <img src="https://i.ibb.co/HVB5Dw1/lib-Drive-Header.png" width="600px" />
+  </h3>
+</a>
 
-Receive GitHub webhook events and send to Telegram chats
-with [AIOHTTP](https://github.com/aio-libs/aiohttp)
-through [Telegram Bot API](https://core.telegram.org/bots/api#sendmessage)
+<p align="center">
+  <a href="https://github.com/libDrive/libDrive/releases">
+    <img src="https://img.shields.io/github/downloads/libDrive/libDrive/total?color=%234197fe&style=for-the-badge" />
+  </a>
+  <a href="https://github.com/libDrive/libDrive/releases/latest">
+    <img src="https://img.shields.io/github/v/release/libDrive/libDrive?color=%234197fe&style=for-the-badge" />
+  </a>
+</p>
 
-What this project do is very simple, it does not use any Telegram Bot API
-framework/library nor receive updates from Telegram, but calling `sendMessage`
-method of Telegram Bot API directly by sending `GET` requests through AIOHTTP.
-It should be able to be used along with any existing Telegram bot without
-conflicts.
+<p align="center">
+  <a href="https://eliasbenb.github.io">
+    <img src="https://i.ibb.co/rmDXnnk/Magnet-Magnet-prod.png" width="180" />
+  </a>
+</p>
 
-1. Receive GitHub webhooks (`POST` request)
-2. Verify the SHA256 signature
-3. Format and send the text to a Telegram chat through "sendMessage" method of
-   Telegram Bot API (`GET` request)
+<p align="center">
+  <a href="https://heroku.com/deploy?template=https://github.com/libDrive/heroku">
+    <img src="https://www.herokucdn.com/deploy/button.svg" />
+  </a>
+</p>
 
-### Heroku
+<p align="center">
+  <a href="https://t.me/libdrive_support">
+    <img src="https://cdn0.iconfinder.com/data/icons/social-network-24/512/Telegram-64.png" />
+  </a>
+</p>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dashezup/github-webhook-to-telegram)
+# What is this repo?
 
-### Setup
+libDrive is a media library manager, similar to [Plex](https://www.plex.tv), that organizes Google Drive folders and offers an intuitive interface to explore them
 
-You need a Telegram bot token, create a Telegram bot with
-[BotFather](https://t.me/BotFather) if you don't have one yet.
-
-#### Configuration
-
-1. Go to your GitHub project `Settings - Webhooks - Add webhook`, fill "Payload
-   URL", "Content Type" (must be `application/json`) and "Secret". You can also
-   do this after start running the project.
-2. Copy `config_sample.json` to `config.json` to configure it. `chat_id` can be
-   user id or group/channel id/username, make sure the bot is `/start`ed or
-   member of the chat with permission to send messages
-3. Configure reverse proxy for this app, corresponding configuration for Nginx
-   looks like this
-   ```
-   location /github {
-       rewrite ^/github(.*) /$1 break;
-       proxy_pass http://127.0.0.1:12345;
-   }
-   ```
-
-#### Run
-
-```
-virtualenv venv
-venv/bin/pip install -U -r requirements.txt
-venv/bin/python main.py
-```
-
-### LICENSE
-
-AGPL-3.0-or-later
-
-```
-
-    github-webhook-to-telegram, receive GitHub webhooks and send to Telegram
-    Copyright (C) 2021  Dash Eclipse
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-```
+This repository (<https://github.com/libDrive/webhooks>) contains the source code for the libDrive Telegram bot (<https://t.me/libDriveBot>)
